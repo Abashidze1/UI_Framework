@@ -16,7 +16,9 @@ Automation framework for testing [Sauce Demo](https://www.saucedemo.com/) web ap
 ui-framework/
 
 │
+
 ├── pages/
+
 │   ├── base_page.py
 │   ├── login_page.py
 │   ├── products_page.py
