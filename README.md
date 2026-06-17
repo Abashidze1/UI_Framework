@@ -11,57 +11,29 @@ Automation framework for testing [Sauce Demo](https://www.saucedemo.com/) web ap
 - **Loguru** — logging
 - **webdriver-manager** — automatic driver management
 
-## Project Structure
-'''
+## Структура проекта
+
+```text
 api-framework/
-
-│
-
 ├── clients/
-
-│   ├── base_client.py    # base HTTP methods + automatic logging
-
-│   ├── posts_client.py   # /posts endpoints
-
-│   └── users_client.py   # /users endpoints
-
-│
-
+│   ├── base_client.py       # Базовые HTTP методы + автоматическое логирование
+│   ├── posts_client.py      # Эндпоинты /posts
+│   └── users_client.py      # Эндпоинты /users
 ├── models/
-
-│   ├── post_model.py     # Pydantic schema for Post response
-
-│   └── user_model.py     # Pydantic schema for User response (nested objects)
-
-│
-
+│   ├── post_model.py        # Pydantic-схема для ответа Post
+│   └── user_model.py        # Pydantic-схема для ответа User (вложенные объекты)
 ├── data/
-
-│   └── test_data.py      # test data for parametrization
-
-│
-
+│   └── test_data.py         # Тестовые данные для параметризации
 ├── utils/
-
-│   └── logger.py         # loguru configuration
-
-│
-
+│   └── logger.py            # Конфигурация логгера (loguru)
 ├── tests/
+│   ├── posts/               # Тесты для /posts (smoke, positive, negative)
+│   └── users/               # Тесты для /users
+├── conftest.py              # Глобальные фикстуры (инициализация API-клиентов)
+├── pytest.ini               # Конфигурация Pytest (маркеры, логи)
+└── requirements.txt         # Зависимости проекта
 
-│   ├── posts/            # smoke, positive, negative, parametrized
-
-│   └── users/
-
-│
-
-├── conftest.py           # shared fixtures (API clients)
-
-├── pytest.ini            # markers and logging config
-
-└── requirements.txt
-'''
-
+```
 ## Test Categories
 
 - `smoke` — critical checks, run first
