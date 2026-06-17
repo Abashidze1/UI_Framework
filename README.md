@@ -13,36 +13,52 @@ Automation framework for testing [Sauce Demo](https://www.saucedemo.com/) web ap
 
 ## Project Structure
 '''
-ui-framework/
+api-framework/
 
 │
 
-├── pages/
+├── clients/
 
-│   ├── base_page.py
-│   ├── login_page.py
-│   ├── products_page.py
-│   ├── cart_page.py
-│   └── checkout_page.py
+│   ├── base_client.py    # base HTTP methods + automatic logging
+
+│   ├── posts_client.py   # /posts endpoints
+
+│   └── users_client.py   # /users endpoints
+
 │
-├── locators/
-│   ├── login_locators.py
-│   ├── products_locators.py
-│   ├── cart_locators.py
-│   └── checkout_locators.py
+
+├── models/
+
+│   ├── post_model.py     # Pydantic schema for Post response
+
+│   └── user_model.py     # Pydantic schema for User response (nested objects)
+
 │
-├── tests/
-│   ├── test_login.py
-│   ├── test_products.py
-│   ├── test_cart.py
-│   └── test_checkout.py
+
+├── data/
+
+│   └── test_data.py      # test data for parametrization
+
 │
+
 ├── utils/
-│   ├── waits.py
-│   └── logger.py
+
+│   └── logger.py         # loguru configuration
+
 │
-├── conftest.py
-├── pytest.ini
+
+├── tests/
+
+│   ├── posts/            # smoke, positive, negative, parametrized
+
+│   └── users/
+
+│
+
+├── conftest.py           # shared fixtures (API clients)
+
+├── pytest.ini            # markers and logging config
+
 └── requirements.txt
 '''
 
